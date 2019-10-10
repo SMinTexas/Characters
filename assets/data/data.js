@@ -1,30 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const accountRouter = require("./routes/account");
-// const characters = require("./assets/data/data");
-const port = 3000;
-const app = express();
-
-app.use(session({
-    secret: "The Texas Aggies shocked Alabama in 2012",
-    resave: false,
-    saveUninitialized: true
-}));
-
-app.use(express.static("assets"));
-app.set("view engine", "pug");
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.get("/", function(req, res) {
-    res.render("index", { title: "Awesome Movie Characters", message: "We Love Movies" });
-});
-
 const characters = [{
         name: "Darth Vader",
         series: "Star Wars",
         who: `A Dark Lord of the Sith who is the primary focus of the Star Wars 
-        Skywalker saga.`,
+    Skywalker saga.`,
         image: "/images/darthvader.jpeg",
         appearances: [
             "Star Wars:  Episode III - Revenge of the Sith",
@@ -66,10 +44,10 @@ const characters = [{
         name: "Anakin Skywalker",
         series: "Star Wars",
         who: `When we first meet Anakin Skywalker, he is a 9-year-old slave
-        living with his mother, Smii, on the desert planet Tatooine, and will
-        soon leave with Jedi Knights Qui-Gon Jenn and Obi-Wan Kenobi to be 
-        trained as a Jedi Knight.  This proves to be a devastating decision
-        for young Skywalker.`,
+    living with his mother, Smii, on the desert planet Tatooine, and will
+    soon leave with Jedi Knights Qui-Gon Jenn and Obi-Wan Kenobi to be 
+    trained as a Jedi Knight.  This proves to be a devastating decision
+    for young Skywalker.`,
         image: "/images/anakinskywalker.jpeg",
         appearances: [
             "Star Wars:  Episode I - The Phantom Menace",
@@ -109,9 +87,9 @@ const characters = [{
         name: "Luke Skywalker",
         series: "Star Wars",
         who: `Born at the conclusion of the Clone Wars, Luke Skywalker is hidden
-        away from his father by Obi-Wan Kenobi, who watches over him from a 
-        distance on the desert planet Tatooine until the time comes for Luke
-        to learn his destiny.`,
+    away from his father by Obi-Wan Kenobi, who watches over him from a 
+    distance on the desert planet Tatooine until the time comes for Luke
+    to learn his destiny.`,
         image: "/images/lukeskywalker.jpeg",
         appearances: [
             "Star Wars:  Episode III - Revenge of the Sith",
@@ -154,9 +132,9 @@ const characters = [{
         name: "Han Solo",
         series: "Star Wars",
         who: `A native Correllian, Han received his last name from an Imperial
-        officer at an Imperial Navy recruitment center when he was a teen.  Later,
-        Han developed a reputation as a smuggler and swindler who would quite
-        reluctantly align himself with the Rebel Alliance.`,
+    officer at an Imperial Navy recruitment center when he was a teen.  Later,
+    Han developed a reputation as a smuggler and swindler who would quite
+    reluctantly align himself with the Rebel Alliance.`,
         image: "/images/hansolo.jpeg",
         appearances: [
             "Solo:  A Star Wars Story",
@@ -177,7 +155,7 @@ const characters = [{
         enemies: [
             "Lando Calrissian",
             " Beckett",
-            " Jabba the Hutt",
+            " abba the Hutt",
             " Darth Vader",
             " The Empire",
             " Guavian Death Gang",
@@ -203,9 +181,9 @@ const characters = [{
         name: "Princess Leia",
         series: "Star Wars",
         who: `Adopted daughter of the Royal Family of the planet Alderaan,
-        Leia is a spirited leader of a burgeoning Rebel Alliance as a young
-        woman, and then later as a Resistance to the First Order in her waning
-        years.`,
+    Leia is a spirited leader of a burgeoning Rebel Alliance as a young
+    woman, and then later as a Resistance to the First Order in her waning
+    years.`,
         image: "/images/princessleia.jpeg",
         appearances: [
             "Star Wars:  Episode III - Revenge of the Sith",
@@ -252,8 +230,8 @@ const characters = [{
         name: "Steven Rogers - Captain America",
         series: "Marvel",
         who: `A result of a World War II experiment to create an army of Super
-        Soldiers by the United States Army, Steven Rogers takes the fight to 
-        the Nazis and Hydra.`,
+    Soldiers by the United States Army, Steven Rogers takes the fight to 
+    the Nazis and Hydra.`,
         image: "/images/captainamerica.jpeg",
         appearances: [
             "Captain America:  The First Avenger",
@@ -310,9 +288,9 @@ const characters = [{
         name: "Tony Stark - Iron Man",
         series: "Marvel",
         who: `Heir to a multi-billion dollar arms manufacturer, Tony Stark is a
-        genius, a graduate of MIT, and a flamboyent playboy who's life is 
-        transformed after a trip to the Middle East to demonstrate his latest
-        arms project.`,
+    genius, a graduate of MIT, and a flamboyent playboy who's life is 
+    transformed after a trip to the Middle East to demonstrate his latest
+    arms project.`,
         image: "/images/ironman.jpeg",
         appearances: [
             "Iron Man",
@@ -1003,32 +981,3 @@ const characters = [{
         slug: "oddjob"
     }
 ];
-
-app.get("/characters", function(req, res) {
-    res.render("characters", { characters: characters });
-});
-
-app.use("/account", accountRouter);
-
-app.get("/characters/:character", function(req, res) {
-    let filteredCharacters = characters.filter(character => {
-        return character.slug === req.params.character;
-    });
-    console.log(filteredCharacters);
-    if (filteredCharacters.length < 1) {
-        res.send("Character not found");
-    }
-    res.render("character", { character: filteredCharacters[0] });
-});
-
-app.get("/about/us", function(req, res) {
-    res.render("about", { title: "Movie Characters", message: "We like movies" });
-});
-
-app.get("/account", function(req, res) {
-    res.render("account");
-});
-
-app.listen(port, () => {
-    console.log(`Port ${port} is running`);
-});

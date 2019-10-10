@@ -2,6 +2,17 @@
     background-color: #eee;
 }
 
-.footer {
+.header-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.content {
+    min-height: 120vh;
+    padding: 20px 0;
+}
+
+.footer>.row {
     bottom: 0;
+    background-color: lightblue;
 }

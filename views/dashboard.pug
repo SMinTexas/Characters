@@ -1,0 +1,13 @@
+extend layout
+
+block content
+    h3 Dashboard
+    h5 My Favorite Movies
+    if message
+        p= message
+    if favMovies
+        ul
+        for movie in favMovies
+            li= movie.title
+
+    include includes/add-movie

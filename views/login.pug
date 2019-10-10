@@ -1,0 +1,8 @@
+extend layout
+
+block content
+    form(method="POST" action="/account/login")
+        .form-group
+            label(for="name") Name
+            input#name.form-control(type="text" aria-describedby="nameHelp" placeholder="Enter your name here" name="name")
+        button.btn-btn-primary Login
