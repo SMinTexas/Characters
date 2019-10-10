@@ -1,0 +1,8 @@
+extend layout
+
+block content
+    ul
+    each character in characters
+        li
+            - var urlSlug = character.slug
+            a(href="/characters/" + urlSlug)= character.name

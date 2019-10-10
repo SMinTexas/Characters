@@ -1,0 +1,18 @@
+extend layout
+
+block content
+    a(href="/characters") Back to Characters
+    h2= character.name + " (" + character.series + ")"
+    h4= character.who
+    img(src=character.image alt=character.name)
+    br
+    br
+    h5= "Appeared in " + character.appearances
+    br
+    h5= "Allies: " + character.allies
+    h5= "Enemies: " + character.enemies
+    h5= "Friends/Family: " + character.relatives
+    h5= "Weapon(s) of choice " + character.weapon
+    br
+    h6= "Created by " + character.created
+    h6= "Performed by " + character.performed
