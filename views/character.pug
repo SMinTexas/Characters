@@ -4,15 +4,54 @@ block content
     a(href="/characters") Back to Characters
     h2= character.name + " (" + character.series + ")"
     h4= character.who
-    img(src=character.image alt=character.name)
-    br
-    br
-    h5= "Appeared in: " + character.appearances
-    br
-    h5= "Allies: " + character.allies
-    h5= "Enemies: " + character.enemies
-    h5= "Friends/Family: " + character.relatives
-    h5= "Weapon(s) of choice: " + character.weapon
-    br
-    h6= "Created by " + character.created
-    h6= "Performed by " + character.performed
+    hr
+    .container
+        .row
+            .col-sm
+                h5= character.quote1
+            .col-sm 
+                h5= character.quote2
+            .col-sm
+                h5= character.quote3
+        hr
+        .row
+            .col-sm
+                img(src=character.image alt=character.name)
+            .col-sm
+                h6= "Created by " + character.created
+            .col-sm
+                ul Performed By:
+                each performer in character.performed
+                    li= performer
+        hr
+        .row
+            .col-sm
+                ul Appeared In:
+                each appearance in character.appearances
+                    li= appearance
+            .col-sm
+                img(src=character.image1 alt=character.name)
+            .col-sm
+                img(src=character.image2 alt=character.name)
+        hr
+        .row
+            .col-sm
+                ul Allies:
+                each ally in character.allies
+                    li= ally
+            .col-sm
+                ul Enemies:
+                each enemy in character.enemies
+                    li= enemy
+            .col-sm
+                ul Family:
+                each relative in character.relatives
+                    li= relative
+            .col-sm 
+                ul Choice of Weapon(s):
+                each weapon in character.weapon
+                    li= weapon
+        hr
+
+
+            
