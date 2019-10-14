@@ -1,4 +1,4 @@
-const characters = [{
+module.exports = [{
         name: "Darth Vader",
         series: "Star Wars",
         who: `A Dark Lord of the Sith who is the primary focus of the Star Wars 
@@ -1130,5 +1130,4 @@ const characters = [{
     }
 ];
 
-
-module.exports = characters;
+//module.exports = characters;

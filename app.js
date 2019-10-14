@@ -20,7 +20,6 @@ app.get("/", function(req, res) {
     res.render("index", { title: "Awesome Movie Characters", message: "We Love Movies" });
 });
 
-console.log(characters);
 app.get("/characters", function(req, res) {
     res.render("characters", { characters: characters });
 });
@@ -31,7 +30,6 @@ app.get("/characters/:character", function(req, res) {
     let filteredCharacters = characters.filter(character => {
         return character.slug === req.params.character;
     });
-    console.log(filteredCharacters);
     if (filteredCharacters.length < 1) {
         res.send("Character not found");
     }
