@@ -1,3 +1,23 @@
+body {
+    background-color: black;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+h4,
+h5,
+h6,
+li {
+    color: white;
+}
+
+ul {
+    color: red;
+}
+
 .header {
     background-color: #eee;
 }
@@ -12,7 +32,6 @@
     padding: 20px 0;
 }
 
-.footer>.row {
-    bottom: 0;
-    background-color: lightblue;
+footer {
+    color: lightgray;
 }
