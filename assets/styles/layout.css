@@ -2,11 +2,13 @@ body {
     background-color: black;
 }
 
-h2 {
+h2,
+h3 {
     color: white;
     text-align: center;
 }
 
+p,
 h4,
 h5,
 h6,
